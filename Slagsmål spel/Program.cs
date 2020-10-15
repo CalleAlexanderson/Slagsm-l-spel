@@ -9,17 +9,18 @@ namespace Slagsmål_spel
 
         static void Main(string[] args)
         {
+            Console.WriteLine("Namnge din kämpe");
             string name = Console.ReadLine();
             int game = 1;
             int turn = 0;
             int playerhp = 100;
             int opponenthp = 100;
-
+            Console.Clear();
             while (game == 1)
             {
                 if (playerhp == 0 || opponenthp == 0)
                 {
-                    if (playerhp == 0)
+                    if (opponenthp == 0 && playerhp > 0)
                     {
                         Console.WriteLine("You win");
                     }
@@ -54,7 +55,7 @@ namespace Slagsmål_spel
         {
 
             Random generator = new Random();
-            int opdamage = generator.Next(101);
+            int opdamage = generator.Next(1, 31);
             currentPHP = currentPHP - opdamage;
 
             return currentPHP;
@@ -63,7 +64,7 @@ namespace Slagsmål_spel
         static int Fight2(int currentOPHP)
         {
             Random generator = new Random();
-            int pdamage = generator.Next(101);
+            int pdamage = generator.Next(1, 31);
             currentOPHP = currentOPHP - pdamage;
 
             return currentOPHP;
